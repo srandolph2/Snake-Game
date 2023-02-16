@@ -99,6 +99,7 @@ const moveSnake = () =>{
 
   //check if snake head is about to interact w/ body
   if(nextSnakeHeadPixel.classList.contains("snakeBodyPixel")){
+    clearInterval(moveSnakeInterval)
     alert(`You have eaten ${totalFoodEaten} food and traveled ${totalDistanceTraveled} blocks.`)
 
     //reset the board
@@ -107,6 +108,21 @@ const moveSnake = () =>{
 
   //assuming an empty pixel, add snake bodystyling
   nextSnakeHeadPixel.classList.add("snakeBodyPixel")
+
+  //Remove snake styling to keep snake appropriate length
+setTimeout(() => {
+  nextSnakeHeadPixel.classList.remove("snakeBodyPixel")
+}, snakeLength)
+
+  //This descrbes what to do when the snakee eats a food pixel
+  if(currentHeadPosition == currentFoodPosition){
+    totalFoodEaten++
+    document.getElementById("pointsEarned").innerText = totalFoodEaten
+
+    snakeLength = snakeLength + 100
+    createFood()
+  }
+
 }
 
 createGameBoardPixels();
