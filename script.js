@@ -123,9 +123,30 @@ setTimeout(() => {
     createFood()
   }
 
+  //added total distance traveled count
+  totalDistanceTraveled++
+  document.getElementById("blocksTraveled").innerText = totalDistanceTraveled
+
 }
 
+//calling the inital functions to create the gameboard
 createGameBoardPixels();
 
 createFood();
 
+//set animation speed
+let moveSnakeInterval = setInterval(moveSnake, 100)
+
+addEventListener("keydown", e => changeDirection(e.keyCode))
+
+//variables for onscreen buttons
+const leftButton = document.getElementById("leftButton")
+const rightButton = document.getElementById("rightButton")
+const upButton = document.getElementById("upButton")
+const downButton = document.getElementById("downButton")
+
+//addeventlisteners for on screen buttons
+leftButton.onclick = () => changeDirection(LEFT_DIR)
+rightButton.onclick = () => changeDirection(RIGHT_DIR)
+upButton.onclick = () => changeDirection(UP_DIR)
+downButton.onclick = () => changeDirection(DOWN_DIR)

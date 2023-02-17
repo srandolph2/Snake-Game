@@ -18,7 +18,6 @@ body{
   height: 1vw;
   border-radius: 10px;
   float: left;
-  border: 1px solid black;
 }
 
 .food{
@@ -26,19 +25,19 @@ body{
   box-shadow: 0 0 10px pink;
 }
 
-.snakeBodyPixel {
+.snakeBodyPixel{
   background-color: green;
   box-shadow: 0 0 5px lightgreen;
 }
 
-#scoreContainer {
+#scoreContainer{
   width: 40vw;
   display: flex;
   margin: auto;
   justify-content: space-around;
 }
 
-.scoreBoard {
+.scoreBoard{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
   border-radius: 10px;
@@ -54,4 +53,49 @@ body{
 /*this is to hide the controllers unless on moblie*/
 #onScreenControllers{
   display: none;
+}
+
+/*for phone*/
+@media only screen and (max-width:786px){
+  #gameContainer{
+    width: 80vw;
+    height: 80vw;
+  }
+  .gameBoardPixel{
+    width: 2vw;
+    height: 2vw;
+  }
+
+  #scoreContainer{
+    width: 80w;
+  }
+
+  #onScreenControllers{
+    width: 80vw;
+    margin: 5vw auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+   
+  #onScreenControllers > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #onScreenControllers button {
+    background-color: transparent;
+    height: 20vw;
+    width: 20vw;
+    font-size: 10vw;
+    border: none;
+  }
+
+  #onScreenControllers button:focus {
+    outline: none;
+  }
+
+  #onScreenControllers button:active {
+    background-color: slategray;
+  }
 }
